@@ -15,6 +15,7 @@ class HomeController extends Controller
 {
 
     public function redirect(){
+        $user = Auth::user();
         $userRole=Auth::user()->user_role;
 
         if($userRole=='0'){
