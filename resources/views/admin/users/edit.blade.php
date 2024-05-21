@@ -30,7 +30,7 @@
         </center>
 
         <div style="display: flex;flex-direction: row; gap: 100px;">
-            <div style="background-color: white;padding: 10px;border: 1px solid white; margin-left:100px"><img src="/profile.jpeg" alt="..." style="width:100%; height:50%; border:50%; border-radius: 50%"></div>
+            <div style="background-color: white;padding: 10px;border: 1px solid white; margin-left:100px"><img src="/profile.jpeg" alt="..." style="width:250px; height:30%; border-radius: 60%"></div>
             <div style="background-color: white;padding: 10px;border: 1px solid white;width:80%; margin-right:20%">
             
             <div style="">
@@ -47,6 +47,11 @@
                 <div>
                     Téléphone :
                     <input id="telephone" readonly value="{{$user->phone}}" class="block mt-1 w-full" type="tel" name="telephone" :value="old('telephone')" required autofocus autocomplete="telephone" />
+                </div><br>
+
+                <div>
+                    Date de création :
+                    <input id="telephone" readonly value="{{$user->created_at}}" class="block mt-1 w-full" type="text" name="created_at" :value="old('created_at')" required autofocus autocomplete="created_at" />
                 </div>
 
                 <div class="mt-4">

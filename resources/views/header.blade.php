@@ -7,7 +7,7 @@
             
             <li class="nav-item dropdown" style="color:white; margin-top: 20px; margin-left: 30px">
                 <a style="color:white"class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Qui sommes nous ?</a>
-                <ul class="dropdown-menu" style="background-color:#0b8dce; ">
+                <ul class="dropdown-menu" style="background-color:#1742a4; ">
                     <li><a class="dropdown-item" href="#">A PROPOS DE MY FORMATION</a></li>
                     <li><a class="dropdown-item" href="#">CHIFFRE CLES</a></li>
                     <li><a class="dropdown-item" href="#">INFORMATIONS PRATIQUES</a></li>
@@ -15,7 +15,7 @@
             </li> 
             <li class="nav-item dropdown" style="color:white; margin-top: 20px; margin-left: 30px">
                 <a style="color:white"class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" style="background-color:#1742a4; ">
                     <li><a class="dropdown-item" href="#">Link</a></li>
                     <li><a class="dropdown-item" href="#">Another link</a></li>
                     <li><a class="dropdown-item" href="#">A third link</a></li>
@@ -23,14 +23,14 @@
             </li> 
             <li class="nav-item dropdown" style="color:white; margin-top: 20px; margin-left: 30px">
                 <a style="color:white"class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Formations</a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" style="background-color:#1742a4; ">
                     <li><a class="dropdown-item" href="#">Par secteur</a></li>
                     <li><a class="dropdown-item" href="#">Par métier</a></li>
                 </ul>
             </li> 
             <li class="nav-item dropdown" style="color:white; margin-top: 20px; margin-left: 30px">
                 <a style="color:white"class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Contact</a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" style="background-color:#1742a4; ">
                     <li><a class="dropdown-item" href="#">Nous contacter</a></li>
                     <li><a class="dropdown-item" href="#">Documents My Formation</a></li>
                 </ul>

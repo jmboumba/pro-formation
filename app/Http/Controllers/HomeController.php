@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Product;
-use App\Models\Cart;
-use App\Models\Order;
-use App\Models\Category;
+use App\Models\Formation;
 
 
 class HomeController extends Controller
@@ -19,7 +16,8 @@ class HomeController extends Controller
         $userRole=Auth::user()->user_role;
 
         if($userRole=='0'){
-            return view('home');
+            $formations = Formation::All();
+            return view('home', compact('formations'));
         }
         else{
             return view('admin.dashboard');

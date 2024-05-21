@@ -50,6 +50,7 @@
                     <th>Email</th>
                     <th>Téléphone</th>
                     <th>Role</th>
+                    <th>Status</th>
                     <th>Action</th>
                     </tr>
                 </thead>
@@ -63,6 +64,7 @@
                             <td>{{$users->email}}</td>
                             <td>{{$users->phone}}</td>
                             <td>{{$role_name}}</td>
+                            <td>Offline</td>
                             <td>
                                 <a class="btn btn-success" href="{{url('/users/edit', $users->id)}}">Edit</a>
                                 <button class="btn btn-danger">delete</button>

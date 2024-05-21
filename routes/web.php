@@ -35,10 +35,22 @@ Route::middleware([
     Route::get('/users/changerole/{id}', [AdminController::class, 'changeUserRole'])->where('id', '[0-9]+');
 
 
+
+
     Route::get('/formations/list', [AdminController::class, 'showFormations']);
+    Route::get('/formations/add_view', [AdminController::class, 'addFormationView']);
+    Route::post('/formations/store', [AdminController::class, 'addFormation']);
+    Route::get('/formations/edit/{id}', [AdminController::class, 'showOneFormation'])->where('id', '[0-9]+');
+
+
 
 
     Route::get('/metiers/list', [AdminController::class, 'showMetiers']);
+    Route::get('/metiers/add_view', [AdminController::class, 'addMetierView']);
+    Route::post('/metiers/store', [AdminController::class, 'addMetier']);
+    Route::get('/metiers/edit/{id}', [AdminController::class, 'showOneMetier'])->where('id', '[0-9]+');
+
+
 
 
 

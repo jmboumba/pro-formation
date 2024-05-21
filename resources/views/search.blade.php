@@ -11,18 +11,25 @@
 
         <form action="">
             @csrf
-            <div class="" style="width:35%; height: 20px">
-                <input type="search" style="height: 60px; font-size: 20px" class="form-control rounded" placeholder="Formation" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
+            <div class="input-group rounded" style="width:30%">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <span class="input-group-text border-0" id="search-addon" style="width:10%">
+                    <button type="button"  class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
+                </span>
             </div>
         </form>
         
-        </center><br><br><br><br>
+        </center><br><br><br><br><br><br><br><br>   
 
         <div style="background-color:  #aac8e5 ; height: 100px">
             <center>
                 <h1>Liste des formations</h1>
             </center>
+
+            <div>
+               
+            </div>
+
         </div>
         
     </div>

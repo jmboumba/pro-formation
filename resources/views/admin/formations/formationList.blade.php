@@ -12,7 +12,7 @@
                 </div> 
             </a>
             <a class="navbar-brand" href="#">Formations List</a>
-            <a href="" style="margin-left:500px">
+            <a href="/formations/add_view" style="margin-left:500px">
                 <button class="btn btn-primary"><i class="bi bi-plus"></i> New</button>
             </a>
         </nav>
@@ -26,9 +26,9 @@
             <a class="navbar-brand" href="#">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>All</option>
-                    <option value="1">Active</option>
-                    <option value="2">Inactive</option>
-                    <option value="3">Three</option>
+                    @foreach($metiers as $metier)
+                        <option value="{{$metier->id}}">{{$metier->libelle}}</option>
+                    @endforeach
                 </select>
             </a>
             
@@ -38,47 +38,27 @@
                 <thead>
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Métier</th>
+                    <th scope="col">Durée</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
+                @foreach($formations as $formation)
                     <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                        <th scope="row">{{$formation->id}}</th>
+                        <td>{{$formation->titre}}</td>
+                        <td>{{$formation->metier_id}}</td>
+                        <td>{{$formation->duree}} jours</td>
+                        <td>{{$formation->price}} DHS</td>
+                        <td>
+                            <a class="btn btn-success" href="{{url('/formations/edit', $formation->id)}}">Edit</a>
+                            <a onclick="return confirm('Are you sure to delete this secteur ?')" class="btn btn-danger" href="{{url('/formation/delete', $formation->id)}}">Delete</a>
+                        </td>
                     </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

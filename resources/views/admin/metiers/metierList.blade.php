@@ -11,7 +11,7 @@
                     </center>
                 </div> 
             </a>
-            <a class="navbar-brand" href="#">Métiers List</a>
+            <a class="navbar-brand" href="/metiers/list">Métiers List</a>
             <a href="/metiers/add_view" style="margin-left:500px">
                 <button class="btn btn-primary"><i class="bi bi-plus"></i> New</button>
             </a>
@@ -26,9 +26,9 @@
             <a class="navbar-brand" href="#">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>All</option>
-                    <option value="1">Active</option>
-                    <option value="2">Inactive</option>
-                    <option value="3">Three</option>
+                    @foreach($secteurs as $secteur)
+                        <option value="{{$secteur->id}}">{{$secteur->libelle}}</option>
+                    @endforeach
                 </select>
             </a>
             
@@ -38,47 +38,23 @@
                 <thead>
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Libelle</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
+                    @foreach($metiers as $metier)
+                            <tr>
+                                <th scope="row">{{$metier->id}}</th>
+                                <td>{{$metier->libelle}}</td>
+                                <td>{{$metier->description}}</td>
+                                <td>
+                                    <a class="btn btn-success" href="{{url('/metiers/edit', $metier->id)}}">Edit</a>
+                                    <button class="btn btn-danger">delete</button>
+                                </td>
+                            </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
