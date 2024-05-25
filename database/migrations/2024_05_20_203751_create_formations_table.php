@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->integer('metier_id');
             $table->string('titre');
-            $table->text('details');
+            $table->longText('objectifs');
+            $table->longText('programme');
+            $table->longText('niveau')->nullable();
             $table->integer('duree');
             $table->double('price');
-            $table->string('video')->default('Formation.mp4');
+            $table->string('video');
             $table->timestamps();
         });
     }

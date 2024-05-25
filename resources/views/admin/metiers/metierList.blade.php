@@ -1,7 +1,7 @@
-@extends('layouts.adminDefault')
+@extends('layouts.admin.admin')
     
 @section('content')
-        <nav class="navbar navbar-expand-lg navbar-light bg-withe">
+        <nav class="navbar navbar-expand-lg navbar-light bg-withe" style="margin-top:50px">
             <a class="navbar-brand" href="#">
                 <div style="background-color: #c22eee ; width:40px; height:35px; border: 1px solid white; ">
                     <center>

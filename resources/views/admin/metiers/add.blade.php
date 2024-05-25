@@ -1,7 +1,7 @@
-@extends('layouts.adminDefault')
+@extends('layouts.admin.admin')
     
 @section('content')
-        <nav class="navbar navbar-expand-lg navbar-light bg-withe">
+        <nav class="navbar navbar-expand-lg navbar-light bg-withe" style="margin-top:50px">
             <a class="navbar-brand" href="#">
                 <div style="background-color: #c22eee ; width:40px; height:35px; border: 1px solid white; ">
                     <center>
@@ -28,11 +28,11 @@
                 @endif
         </center>
 
-        <div style="width:400px; margin-left:25%; border: 1px solid gray; margin-top:50px">
-            <form action="{{url('/metiers/store')}}" method="POST">
+        <div style="width:400px; margin-left:25%; margin-bottom:300px; margin-top:50px">
+            <form action="{{url('/metiers/store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3" style="margin-top:10%">
-                        <label for="name" class="form-label">Nom du secteur</label>
+                        <label style="font-weight:bold" for="name" class="form-label">Nom du secteur</label>
                         <select class="form-select" aria-label="Default select example" name="secteur_id">
                             @foreach($secteurs as $secteur)
                                 <option value="{{$secteur->id}}">{{$secteur->libelle}}</option>
@@ -40,15 +40,18 @@
                         </select>
                 </div>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Nom du métier</label>
+                    <label style="font-weight:bold" for="name" class="form-label">Nom du métier</label>
                     <input type="text" class="form-control" id="libelle" placeholder="name" name="libelle">
                 </div>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Description</label>
+                    <label style="font-weight:bold" for="name" class="form-label">Description</label>
                     <input type="text" class="form-control" id="description" placeholder="description" name="description">
                 </div>
-
-                <center><button type="submit" class="btn btn-primary">Ajouter</button></center><br>
+                <div class="mb-3">
+                    <label style="font-weight:bold" for="name" class="form-label">Image</label>
+                    <input type="file" class="form-control" name="image" />
+                </div>
+                <button type="submit" class="btn btn-primary">Ajouter un métier</button><br>
             </form>
         </div>
         

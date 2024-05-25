@@ -10,9 +10,12 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/', function(){
-    return view('home');
+Route::get('/test', function(){
+    return view('layouts.admin.admin');
 });
+
+
+Route::get('/', [HomeController::class, 'index']);
 
 Route::middleware([
     'auth:sanctum',
@@ -28,13 +31,13 @@ Route::middleware([
     Route::get('/secteurs/delete/{id}', [AdminController::class, 'deleteSecteur'])->where('id', '[0-9]+');
     Route::get('/secteurs/edit/{id}', [AdminController::class, 'showOneSecteur'])->where('id', '[0-9]+');
     Route::get('/secteurs/add_view', [AdminController::class, 'addSecteurView']);
+    Route::get('/secteurs/edit/{id}', [AdminController::class, 'showOneSecteur'])->where('id', '[0-9]+');
+    Route::get('/secteurs/update/{id}', [AdminController::class, 'updateSecteur'])->where('id', '[0-9]+');
 
 
     Route::get('/users/list', [AdminController::class, 'showUsers']);
     Route::get('/users/edit/{id}', [AdminController::class, 'showUser'])->where('id', '[0-9]+');
     Route::get('/users/changerole/{id}', [AdminController::class, 'changeUserRole'])->where('id', '[0-9]+');
-
-
 
 
     Route::get('/formations/list', [AdminController::class, 'showFormations']);
@@ -52,18 +55,10 @@ Route::middleware([
 
 
 
-
-
     Route::get('/actu/list', [AdminController::class, 'showActualites']);
-
-
-    
-
-    
-
-    
+    Route::get('/actu/add/view', [AdminController::class, 'addActuView']);
+    Route::post('/actu/store', [AdminController::class, 'addActu']);
+    Route::get('/actu/edit/{id}', [AdminController::class, 'showOneActu'])->where('id', '[0-9]+');
 
 });
-
-
 

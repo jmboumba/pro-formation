@@ -1,7 +1,7 @@
-@extends('layouts.adminDefault')
+@extends('layouts.admin.admin')
     
 @section('content')
-        <nav class="navbar navbar-expand-lg navbar-light bg-withe">
+        <nav class="navbar navbar-expand-lg navbar-light bg-withe" style="margin-top:50px">
             <a class="navbar-brand" href="#">
                 <div style="background-color: #c22eee ; width:40px; height:35px; border: 1px solid white; ">
                     <center>
@@ -28,7 +28,7 @@
                 @endif
         </center>
 
-        <div style="width:400px; margin-left:25%; margin-top:50px">
+        <div style="width:400px; margin-left:10%; margin-top:50px; width:80%">
             <form action="{{url('/formations/store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3" style="margin-top:10%">
@@ -43,12 +43,18 @@
                     <label style="font-weight:bold" for="name" class="form-label">Nom de la formation <span style="color:red">*</span></label>
                     <input type="text" class="form-control" id="titre" placeholder="name" name="titre">
                 </div>
-                <div class="mb-3">
-                    <label style="font-weight:bold" for="name" class="form-label">Détails de la formation <span style="color:red">*</span></label>
-                    <br><textarea style="width:380px" name="details" >
-                        
-                    </textarea>
-                </div>
+                <div class="form-group">
+                    <label style="font-weight:bold" for="exampleFormControlTextarea1">Objectifs</label>
+                    <textarea name="objectifs" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div><br>
+                <div class="form-group">
+                    <label style="font-weight:bold" for="exampleFormControlTextarea1">Programme</label>
+                    <textarea name="programme" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div><br>
+                <div class="form-group">
+                    <label style="font-weight:bold" for="exampleFormControlTextarea1">Niveau réquis</label>
+                    <textarea name="niveau" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div><br>
                 <div class="mb-3">
                     <label style="font-weight:bold" for="duree" class="form-label">Durée de la formation (jours) <span style="color:red">*</span></label>
                     <input type="number" class="form-control" id="duree" min="1" name="duree">
@@ -63,12 +69,10 @@
                     <input type="file" class="form-control" id="video" name="video">
                 </div>
 
-                <script>
-                    CKEDITOR.replace('editor');
-                </script>
-
-                <center><button type="submit" class="btn btn-primary">Ajouter</button></center><br>
+                <button type="submit" class="btn btn-primary">Ajouter une formation</button><br><br><br><br>
             </form>
         </div>
+        
+
         
 @stop

@@ -1,7 +1,8 @@
-@extends('layouts.adminDefault')
+@extends('layouts.admin.admin')
     
 @section('content')
-        <nav class="navbar navbar-expand-lg navbar-light bg-withe">
+    
+        <nav class="navbar navbar-expand-lg navbar-light bg-withe" style="margin-top:50px">
             <a class="navbar-brand" href="#">
                 <div style="background-color: #c22eee ; width:40px; height:35px; border: 1px solid white; ">
                     <center>
@@ -28,25 +29,34 @@
                 @endif
         </center>
 
-        <div style="display: flex;flex-direction: row; gap: 100px;">
-            <div style="background-color: white;padding: 10px;border: 1px solid white;width:80%; margin-right:20%">
+        <div style="display: flex;flex-direction: row; gap: 100px; width:100%">
+            <div style="background-color: white;padding: 10px;border: 1px solid white;width:100%; margin-left:10%">
             
-            <div style="">
-                <div>
-                    Secteur name :
-                    <input id="firstname" value="{{$secteur->libelle}}" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="firstname" />
-                </div><br>
+                <div style="">
+                    <form action="{{url('/secteurs/update', $secteur->id)}}" method="post" enctype="multipart/form-data">
+                    <div>
+                        Secteur name :
+                        <input id="firstname" value="{{$secteur->libelle}}" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="firstname" />
+                    </div><br>
 
-                <div>
-                    Description : 
-                    <input id="name" value="{{$secteur->description}}" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-                </div><br>
+                    <div>
+                        Description : 
+                        <input id="name" value="{{$secteur->description}}" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                    </div><br>
+                    <div>
+                    <p style="font-weight:bold">Change image :</p>
+                        <input id="image" class="block mt-1 w-full" type="file" name="image" :value="old('image')" autocomplete="image" />
+                    </div><br>
 
-                <div class="mt-4">
-                    <center><br><a href="{{url('/secteurs/update', $secteur->id)}}"><button class="btn btn-danger">Save changes</button></a></center>
+                    <div class="mt-4">
+                        <br><button type="submit" class="btn btn-danger">Save changes</button>
+                    </div>
+                    </form>
                 </div>
-            </div>
 
+            </div>
+            <div style="background-color: white; padding: 10px;border: 1px solid white;width:100%; margin-bottom:300px">
+                <img style="height:300px; width:500px" src="/images/secteurs/{{$secteur->image}}"/>
             </div>
             
         </div>

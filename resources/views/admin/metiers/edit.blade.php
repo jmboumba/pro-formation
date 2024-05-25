@@ -1,7 +1,8 @@
-@extends('layouts.adminDefault')
+@extends('layouts.admin.admin')
     
 @section('content')
-        <nav class="navbar navbar-expand-lg navbar-light bg-withe">
+<div style="margin-left:100px">
+        <nav class="navbar navbar-expand-lg navbar-light bg-withe" style="margin-top:50px">
             <a class="navbar-brand" href="#">
                 <div style="background-color: #c22eee ; width:40px; height:35px; border: 1px solid white; ">
                     <center>
@@ -29,7 +30,7 @@
         </center>
 
         <div style="display: flex;flex-direction: row; gap: 100px;">
-            <div style="background-color: white;padding: 10px;border: 1px solid white;width:80%; margin-right:20%">
+            <div style="background-color: white;padding: 10px;border: 1px solid white;width:100%; ">
             
             <div style="">
                 <div>
@@ -40,18 +41,24 @@
                 <div>
                     Description : 
                     <input id="name" value="{{$metier->description}}" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                </div><br>
+
+                <div>
+                    Secteur : 
+                    <input id="name" readonly value="{{$metier->secteur->libelle}}" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                 </div>
 
-                <div class="mt-4">
-                    <center><br><a href="{{url('/metiers/update', $metier->id)}}"><button class="btn btn-danger">Save changes</button></a></center>
+                <div class="mt-4" style="margin-bottom:300px">
+                    <br><a href="{{url('/metiers/update', $metier->id)}}"><button class="btn btn-danger">Save changes</button></a>
                 </div>
             </div>
+            </div>
 
+            <div style="background-color: white;padding: 10px;border: 1px solid white;width:100%; margin-bottom:300px">
+                <img style="height:300px; width:500px" src="/images/metiers/{{$metier->image}}"/>
             </div>
             
-        </div>
-
-        
-        </div>
+    </div>
+</div>
 @stop
 

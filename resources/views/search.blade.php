@@ -1,35 +1,49 @@
-<div style="background-color: ; width: 100%">
-        <center>
-        <img style="height: 100px; width: 150px" src="app_logo.png" alt=""><br><br>
-
-        <p class="p">IPL organisme de formations en informatique et management, ayant pour </p>
-        <p class="p">objectif de vous accompagner dans vos projets de formation et de </p>
-        <p class="p">transformation.</p>
-        
-        <p class="p">Plus de 2500 personnes suivent nos formations chaque année en France, Au  </p>
-        <p class="p">Maroc en Belgique, Au Canada et partout en Afrique. </p><br><br>
-
-        <form action="">
-            @csrf
-            <div class="input-group rounded" style="width:30%">
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                <span class="input-group-text border-0" id="search-addon" style="width:10%">
-                    <button type="button"  class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
-                </span>
-            </div>
-        </form>
-        
-        </center><br><br><br><br><br><br><br><br>   
-
-        <div style="background-color:  #aac8e5 ; height: 100px">
-            <center>
-                <h1>Liste des formations</h1>
-            </center>
-
-            <div>
-               
-            </div>
-
+<div style="display: flex; flex-direction: row; gap: 200px;">
+    <div style="background-color: white; padding: 50px; margin-left:100px; width: 400px">
+        <div>
+            <h2 style="width:300px; color:#cb4314 ">Trouver la formation adéquate</h2>
+            <p>Parmis des centaines de formations professionnelles.</p>
+            <p> Des formations dispensées par des experts portant sur des sujets multiples.</p>
+            <a style="margin-left: 50px" href="{{ route('register') }}" class="nav-link"><button type="button" class="btn btn-primary">Commencer</button></a>
         </div>
-        
     </div>
+    <div style="background-color: white;padding: 10px;border: 1px solid white;width:80%; margin-right:10%">
+        <img style="height: 300px; width: 400px" src="app_logo.png" alt="">
+    </div>
+</div>
+
+<div style="margin-top:5%;">
+    <center>
+        <form action="">
+            <input style="height:50px; width:300px" type="search" id="site-search" placeholder="Formation" name="formation" />
+            <button type="submit" style="height:50px">Search</button>
+        </form>
+    </center>
+</div>
+
+<div style="margin-top:10%; background-color: #dcd7d5; height:100px "><br>
+    <div style="margin-left:15%;">
+        <h3>Explorez les formations recentes</h3>
+    </div>
+</div>
+
+<div style="margin-left:200px">
+<div style="display: flex;flex-direction: row; gap: 100px;">
+    @foreach($formations as $formation)
+    <div style="background-color: white;padding: 10px;border: 1px solid white;width:100%; ">
+        <h1>{{$formation->titre}} - {{$formation->description}}</h1>
+        <img src="/images/formations/{{$formation->video}}" alt="">
+        
+        <h2>Objectifs :</h2>
+        <p style="width:100%">{{$formation->objectifs}}</p>
+
+        <h2>Programme :</h2>
+        <p style="width:100%">{{$formation->programme}}</p>
+
+        <h2>Niveau réquis :</h2>
+        <p style="width:100%">{{$formation->niveau}}</p>
+    </div>  
+
+    @endforeach
+</div>
+</div>

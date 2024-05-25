@@ -1,7 +1,7 @@
-@extends('layouts.adminDefault')
+@extends('layouts.admin.admin')
     
 @section('content')
-        <nav class="navbar navbar-expand-lg navbar-light bg-withe">
+        <nav class="navbar navbar-expand-lg navbar-light bg-withe" style="margin-top:50px">
             <a class="navbar-brand" href="#">
                 <div style="background-color: #c22eee ; width:40px; height:35px; border: 1px solid white; ">
                     <center>
@@ -12,7 +12,7 @@
                 </div> 
             </a>
             <a class="navbar-brand" href="#">Actualities List</a>
-            <a href="" style="margin-left:500px">
+            <a href="/actu/add/view" style="margin-left:60%">
                 <button class="btn btn-primary"><i class="bi bi-plus"></i> New</button>
             </a>
         </nav>
@@ -38,47 +38,23 @@
                 <thead>
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Date de publication</th>
+                    <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
+                @foreach($actualites as $actualite)
                     <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                        <th scope="row">{{$actualite->id}}</th>
+                        <td>{{$actualite->titre}}</td>
+                        <td>{{$actualite->created_at}} </td>
+                        <td>
+                            <a class="btn btn-success" href="{{url('/actu/edit', $actualite->id)}}">Edit</a>
+                            <a onclick="return confirm('Are you sure to delete this secteur ?')" class="btn btn-danger" href="{{url('/formation/delete', $actualite->id)}}">Delete</a>
+                        </td>
                     </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

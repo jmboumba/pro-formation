@@ -1,7 +1,7 @@
-@extends('layouts.adminDefault')
+@extends('layouts.admin.admin')
     
 @section('content')
-        <nav class="navbar navbar-expand-lg navbar-light bg-withe">
+        <nav class="navbar navbar-expand-lg navbar-light bg-withe" style="margin-top:10%;">
             <a class="navbar-brand" href="#">
                 <div style="background-color: #c22eee ; width:40px; height:35px; border: 1px solid white; ">
                     <center>
@@ -28,8 +28,8 @@
                 @endif
         </center>
 
-        <div style="display: flex;flex-direction: row; gap: 100px;">
-            <div style="background-color: white;padding: 10px;border: 1px solid white;width:50%; margin-left:20%">
+
+            <div style="background-color: white; width:100%;  padding: 10px;border: 1px solid white; margin-left:20%; margin-bottom:300px">
             
             <div style="">
                 <div style="margin-left:5%">
@@ -68,18 +68,24 @@
                 </div><br>
 
                 <div class="mb-3">
-                    <label for="details" class="form-label">Détails de la formation</label>
+                    <label style="font-weight:bold" for="details" class="form-label">Objectifs :</label>
                     <br><textarea readwrite style="width:100%; height:300px" name="details" >
-                        {{$formation->details}}
+                        {{$formation->objectifs}}
+                    </textarea>
+                </div>
+                <div class="mb-3">
+                    <label style="font-weight:bold" for="details" class="form-label">Programme</label>
+                    <br><textarea readwrite style="width:100%; height:300px" name="details" >
+                        {{$formation->programme}}
                     </textarea>
                 </div>
 
                 <div class="mt-4">
-                    <center><br><a href="{{url('/formations/update', $formation->id)}}"><button class="btn btn-danger">Save changes</button></a></center>
+                    <br><a href="{{url('/formations/update', $formation->id)}}"><button class="btn btn-danger">Save changes</button></a>
                 </div>
             </div>
 
-            </div>
+            
             
         </div>
 
