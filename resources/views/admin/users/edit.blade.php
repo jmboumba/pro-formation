@@ -1,7 +1,7 @@
 @extends('layouts.admin.admin')
     
 @section('content')
-        <?php if($user->role == 1){$role_name = "Admin";}else{$role_name= "User";}?>
+        <?php if($user->user_role == 1){$role_name = "Admin";}elseif($user->user_role == 0){$role_name= "User";}?>
         <nav class="navbar navbar-expand-lg navbar-light bg-withe" style="margin-top:50px">
             <a class="navbar-brand" href="#">
                 <div style="background-color: #c22eee ; width:40px; height:35px; border: 1px solid white; ">

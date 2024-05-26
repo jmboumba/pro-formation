@@ -62,3 +62,9 @@ Route::middleware([
 
 });
 
+
+Route::get('/formations/métier', [HomeController::class, 'searchMetier']);
+
+Route::get('/formations/secteur', [HomeController::class, 'searchSecteur']);
+
+Route::get('/search/base', [HomeController::class, 'search']);

@@ -14,8 +14,8 @@
 
 <div style="margin-top:5%;">
     <center>
-        <form action="">
-            <input style="height:50px; width:300px" type="search" id="site-search" placeholder="Formation" name="formation" />
+        <form action="/search/base">
+            <input style="height:50px; width:300px" type="search" id="site-search" placeholder="Formation" name="title" />
             <button type="submit" style="height:50px">Search</button>
         </form>
     </center>
@@ -23,27 +23,62 @@
 
 <div style="margin-top:10%; background-color: #dcd7d5; height:100px "><br>
     <div style="margin-left:15%;">
-        <h3>Explorez les formations recentes</h3>
+        <h3>Actualités</h3>
     </div>
 </div>
 
-<div style="margin-left:200px">
+<div style="margin-left:200px; margin-top:50px; margin-right:200px; ">
 <div style="display: flex;flex-direction: row; gap: 100px;">
-    @foreach($formations as $formation)
-    <div style="background-color: white;padding: 10px;border: 1px solid white;width:100%; ">
-        <h1>{{$formation->titre}} - {{$formation->description}}</h1>
-        <img src="/images/formations/{{$formation->video}}" alt="">
+    @foreach($actualites as $actualite)
+    <div style="background-color:  #f5f4f4 ;padding: 10px;border: 1px solid white;width:100%; ">
+        <h1>{{$actualite->titre}} </h1>
+        <a href=""><img src="/images/actus/{{$actualite->image}}" width="100%" alt=""></a>
         
         <h2>Objectifs :</h2>
-        <p style="width:100%">{{$formation->objectifs}}</p>
+        <p style="width:100%">{{$actualite->contenu}}</p><br>
 
-        <h2>Programme :</h2>
-        <p style="width:100%">{{$formation->programme}}</p>
-
-        <h2>Niveau réquis :</h2>
-        <p style="width:100%">{{$formation->niveau}}</p>
+        <h5>Date de publication :</h5>
+        <p style="width:100%">{{$actualite->created_at}}</p>
     </div>  
 
     @endforeach
 </div>
 </div>
+
+<div style="margin-top:10%; background-color: #dcd7d5; height:100px "><br>
+    <div style="margin-left:15%;">
+        <h3>Sujets populaires</h3>
+    </div>
+</div>
+
+<div style="display: flex;flex-direction: row; gap: 50px; margin-left: 5%; margin-top: 10%">
+    <div style="border: none; padding: 20px;text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;border-radius: 20px;background-color:  #f0eeee ; ">
+        <p style="">Directeur/Directrice artistique</p>
+    </div>
+    <div style="border: none; padding: 20px;text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;border-radius: 20px;background-color:  #f0eeee ; ">
+        Directeur/Directrice artistique
+    </div>
+    <div style="border: none; padding: 20px;text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;border-radius: 20px;background-color:  #f0eeee ; ">
+        Directeur/Directrice artistique
+    </div>
+    <div style="border: none; padding: 20px;text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;border-radius: 20px;background-color:  #f0eeee ; ">
+        Directeur/Directrice artistique
+    </div>
+</div>
+<div style="display: flex;flex-direction: row; gap: 50px; margin-left: 5%; margin-top: 1%">
+    <div style="border: none; padding: 20px;text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;border-radius: 20px;background-color:  #f0eeee ; ">
+        <p style="">Directeur/Directrice artistique</p>
+    </div>
+    <div style="border: none; padding: 20px;text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;border-radius: 20px;background-color:  #f0eeee ; ">
+        Directeur/Directrice artistique
+    </div>
+    <div style="border: none; padding: 20px;text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;border-radius: 20px;background-color:  #f0eeee ; ">
+        Directeur/Directrice artistique
+    </div>
+    <div style="border: none; padding: 20px;text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;border-radius: 20px;background-color:  #f0eeee ; ">
+        Directeur/Directrice artistique
+    </div>
+</div>
+
+
+

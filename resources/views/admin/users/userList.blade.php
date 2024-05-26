@@ -56,7 +56,7 @@
                 </thead>
                 <tbody>
                     @foreach($users as $users)
-                        <?php if($users->user_role == 1){$role_name = "Admin";}else{$role_name= "User";}?>
+                        <?php if($users->user_role == 1){$role_name = "Admin";}elseif($users->user_role ==0){$role_name= "User";}?>
                         <tr>
                             <th scope="row">{{$users->id}}</th>
                             <td>{{$users->name}}</td>

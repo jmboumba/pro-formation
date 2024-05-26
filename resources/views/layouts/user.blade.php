@@ -16,10 +16,10 @@
 </head>
 <body>
     <div style="height:70px">
-        @include('header')
+        @include('layouts.header')
     </div>
 
-    @include('search')
+    @yield('search')
 
     
     <br><br><br><br><br><br><br><br><br><br><br><br>
