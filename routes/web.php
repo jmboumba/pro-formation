@@ -23,6 +23,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'redirect'])->name('dashboard');
+    Route::get('/home', [HomeController::class, 'index']);
     Route::get('/admin_dashboard', [AdminController::class, 'adminDashboard']);
     Route::get('/admin_formation', [AdminController::class, 'adminFormation']);
 
@@ -60,6 +61,7 @@ Route::middleware([
     Route::post('/actu/store', [AdminController::class, 'addActu']);
     Route::get('/actu/edit/{id}', [AdminController::class, 'showOneActu'])->where('id', '[0-9]+');
 
+    Route::post('/panier/{id}', [HomeController::class, 'addToPanier'])->where('id', '[0-9]+');
 });
 
 
@@ -68,3 +70,7 @@ Route::get('/formations/métier', [HomeController::class, 'searchMetier']);
 Route::get('/formations/secteur', [HomeController::class, 'searchSecteur']);
 
 Route::get('/search/base', [HomeController::class, 'search']);
+
+Route::get('/formations/{id}/details', [HomeController::class, 'FormationDetails'])->where('id', '[0-9]+');
+
+

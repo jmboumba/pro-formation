@@ -2,7 +2,7 @@
     <div class="" style="background-color: #1742a4; height: 70px">
         <ul class="nav" style="margin-left: 0px;"> 
             <li class="nav-item" >
-                <a style="color:white; margin-top: 15px" class="nav-link" href="/home"><img style="height: 40px; width: 90px" src="app_logo.png" alt=""></a>
+                <a style="color:white; margin-top: 15px" class="nav-link" href="/"><img style="height: 40px; width: 90px" src="/app_logo.png" alt=""></a>
             </li>
             
             <li class="nav-item dropdown" style="color:white; margin-top: 20px; margin-left: 30px">

@@ -1,7 +1,7 @@
-<div style="display: flex; flex-direction: row; gap: 200px;">
-    <div style="background-color: white; padding: 50px; margin-left:100px; width: 400px">
+<div style="display: flex; flex-direction: row; gap: 200px; margin-top:5%">
+    <div style="background-color: white; padding: 50px; margin-left:100px; width: 400px; font-size:20px; width:60%">
         <div>
-            <h2 style="width:300px; color:#cb4314 ">Trouver la formation adéquate</h2>
+            <h1 style="width:350px; color:red; font-size:35px ">Trouver la formation adéquate</h1>
             <p>Parmis des centaines de formations professionnelles.</p>
             <p> Des formations dispensées par des experts portant sur des sujets multiples.</p>
             <a style="margin-left: 50px" href="{{ route('register') }}" class="nav-link"><button type="button" class="btn btn-primary">Commencer</button></a>
@@ -16,7 +16,7 @@
     <center>
         <form action="/search/base">
             <input style="height:50px; width:300px" type="search" id="site-search" placeholder="Formation" name="title" />
-            <button type="submit" style="height:50px">Search</button>
+            <button class="btn btn-primary" type="submit" style="height:50px">Search</button>
         </form>
     </center>
 </div>
@@ -79,6 +79,13 @@
         Directeur/Directrice artistique
     </div>
 </div>
+
+<div style="margin-top:10%; background-color:#5F91D0; height:100px "><br>
+    <div style="margin-left:15%;">
+        <h3>Nos Partenaires</h3>
+    </div>
+</div>
+
 
 
 

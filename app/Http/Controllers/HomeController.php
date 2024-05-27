@@ -25,7 +25,7 @@ class HomeController extends Controller
         $userRole=Auth::user()->user_role;
 
         if($userRole=='0'){
-            return view('home');
+            return redirect('/home');
         }
         else if($userRole=='1'){
             return view('admin.dash');
@@ -50,11 +50,29 @@ class HomeController extends Controller
         $title = $request->input('title');
         $results = Formation::where('titre', 'LIKE', '%' . $title . '%')->get();
 
-        return view('user.result', compact('results', 'title'));
+        if(count($results) ==0){
+            $message_error = 'Aucun resultat trouvé';
+            return view('user.result', compact('message_error', 'title'));
+        }else{
+            return view('user.result', compact('results', 'title'));
+        }
+        
     }
 
-    public function searchFormationName(Request $request, $title){
+    public function formationDetails($id){
 
+        $formation = Formation::find($id);
+        $metier = Metier::find($formation->metier_id);
+        $secteur = Secteur::find($metier->secteur_id);
 
+        return view('user.show_formation', compact('formation', 'metier', 'secteur'));
+    }
+
+    public function addToPanier(Request $request, $id){
+        $debut = $request->debut;
+        $user = Auth::user();
+        $formation = Formation::find($id);
+
+        return view('user.panier', compact('debut', 'user', 'formation'));
     }
 }
