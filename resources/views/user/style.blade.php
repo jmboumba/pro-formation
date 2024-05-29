@@ -447,7 +447,7 @@ a:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: #1A40C1;
   z-index: 3;
   opacity: 0;
   visibility: hidden;

@@ -12,7 +12,7 @@
                 </div> 
             </a>
             <a class="navbar-brand" href="#">Formations List</a>
-            <a href="/formations/add_view" style="margin-left:500px">
+            <a href="/formations/add_view" style="margin-left:630px">
                 <button class="btn btn-primary"><i class="bi bi-plus"></i> New</button>
             </a>
         </nav>
@@ -23,16 +23,19 @@
                     <input type="text" class="form-control " placeholder="Search Users...">  
                 </div>
             </a>
-            <a class="navbar-brand" href="#">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>All</option>
-                    @foreach($metiers as $metier)
-                        <option value="{{$metier->id}}">{{$metier->libelle}}</option>
-                    @endforeach
-                </select>
-            </a>
-            
         </nav>
+
+        <center>
+                @if(session()->has('message'))
+            
+                <div class='alert alert-success'>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                </button>
+                {{session()->get('message')}}
+
+                @endif
+        </center>
+
         <div style="margin-top:50px">
             <table class="table">
                 <thead>

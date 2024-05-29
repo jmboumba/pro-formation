@@ -25,14 +25,6 @@
                             </form> 
                         </div>
                     </a>
-                    <a class="navbar-brand" href="#">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>All</option>
-                            <option value="1">Active</option>
-                            <option value="2">Inactive</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </a>
             </nav>
         </form>
 

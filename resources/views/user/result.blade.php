@@ -14,31 +14,25 @@
     
 
     @if(isset($results))
-    <section class="product_section layout_padding" style="z-index: 10;">
+    <section class="product_section layout_padding" style="z-index: 10; ">
          <div class="container">
             <div class="row" style="width:100%; margin-left:15%">
             @foreach($results as $result)
-               <div class="col-sm-6 col-md-4 col-lg-4" >
-                  <div class="box">
+               <div class="col-sm-6 col-md-4 col-lg-4" style="">
+                  <div class="box" style="height:300px">
+                        
                      <div class="option_container">
+                        <div style="height:200px">
+                           <center><p>Hello</p></center>
+                           <center><p>Hello</p></center>
+                        </div>
                         <div class="options">
                            <a href="{{ url('/formations/' . $result->id . '/details') }}" class="option1">
-                            DETAILS
+                           {{$result->titre}}
                            </a>
                            
                         </div>
                      </div>
-                     <div class="img-box">
-                        <img src="/images/formations/{{$result->video}}" alt="">
-                     </div>
-                     <div class="detail-box">
-                        <h2 style="font-size:35px">
-                           {{$result->titre}}
-                        </h2>
-                      </div>
-                      <div class="detail-box">
-                      <p>Description de la formation</p>
-                      </div>
                   </div>
                   
                </div>

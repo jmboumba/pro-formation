@@ -23,16 +23,19 @@
                     <input type="text" class="form-control " placeholder="Search Users...">  
                 </div>
             </a>
-            <a class="navbar-brand" href="#">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>All</option>
-                    @foreach($secteurs as $secteur)
-                        <option value="{{$secteur->id}}">{{$secteur->libelle}}</option>
-                    @endforeach
-                </select>
-            </a>
-            
         </nav>
+
+        <center>
+                @if(session()->has('message'))
+            
+                <div class='alert alert-success'>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                </button>
+                {{session()->get('message')}}
+
+                @endif
+        </center>
+
         <div style="margin-top:50px">
             <table class="table">
                 <thead>

@@ -1,7 +1,13 @@
 <x-guest-layout>
     <x-authentication-card>
-        <x-slot name="logo">
-            <img src="app_logo.png" alt="..." style="height:20%; width:40%; margin-left:30%; margin-top:10%">
+    <x-slot name="logo">
+            <a
+            href="/"
+            class="navbar-brand font-weight-bold text-secondary"
+            style="font-size: 50px; "
+            >
+            <span class="text-primary">Login</span>
+            </a>
         </x-slot>
 
         <x-validation-errors class="mb-4" />
@@ -44,5 +50,8 @@
                 </x-button>
             </div>
         </form>
+        <div style="margin-top:10%;">
+            <p>Vous n'avez pas de compte ? <a style="color:blue" href="{{ route('register') }}"> Créer</a></p>
+        </div>
     </x-authentication-card>
 </x-guest-layout>

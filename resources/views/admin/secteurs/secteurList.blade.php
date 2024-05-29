@@ -12,8 +12,8 @@
                 </div> 
             </a>
             <a class="navbar-brand" href="#">Secteurs List</a>
-            <a href="/secteurs/add_view" style="margin-left:500px">
-                <button class="btn btn-primary"><i class="bi bi-plus"></i> New</button>
+            <a href="/secteurs/add_view" style="margin-left:630px">
+                <button class="btn btn-primary"><i class="bi bi-plus"></i> Nouveau</button>
             </a>
         </nav>
 
@@ -30,7 +30,6 @@
             
                 <div class='alert alert-success'>
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                  x
                 </button>
                 {{session()->get('message')}}
 

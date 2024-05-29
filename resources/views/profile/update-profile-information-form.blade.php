@@ -59,6 +59,13 @@
             <x-input-error for="name" class="mt-2" />
         </div>
 
+        <!-- Firstname -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="firstname" value="{{ __('Firstame') }}" />
+            <x-input id="firstname" type="text" class="mt-1 block w-full" wire:model="state.firstname" required autocomplete="firstname" />
+            <x-input-error for="firstname" class="mt-2" />
+        </div>
+
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="email" value="{{ __('Email') }}" />
@@ -80,6 +87,13 @@
                     </p>
                 @endif
             @endif
+        </div>
+
+        <!-- Phone -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="phone" value="{{ __('Phone') }}" />
+            <x-input id="phone" type="text" class="mt-1 block w-full" wire:model="state.phone" required autocomplete="phone" />
+            <x-input-error for="phone" class="mt-2" />
         </div>
     </x-slot>
 

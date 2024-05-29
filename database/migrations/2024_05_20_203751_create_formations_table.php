@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('formations', function (Blueprint $table) {
             $table->id();
             $table->integer('metier_id');
+            $table->integer('secteur_id');
             $table->string('titre');
             $table->longText('objectifs');
             $table->longText('programme');
             $table->longText('niveau')->nullable();
             $table->integer('duree');
             $table->double('price');
-            $table->string('video');
+            $table->string('image');
             $table->timestamps();
         });
     }

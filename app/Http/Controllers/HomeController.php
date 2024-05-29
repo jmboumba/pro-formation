@@ -9,6 +9,7 @@ use App\Models\Formation;
 use App\Models\Secteur;
 use App\Models\Metier;
 use App\Models\Actualite;
+use App\Models\Panier;
 
 class HomeController extends Controller
 {
@@ -36,13 +37,13 @@ class HomeController extends Controller
     public function searchMetier(){
         $metiers = Metier::All();
 
-        return view('user.search', compact('metiers'));
+        return view('search', compact('metiers'));
     }
 
     public function searchSecteur(){
         $secteurs = Secteur::All();
 
-        return view('user.search', compact('secteurs'));
+        return view('search', compact('secteurs'));
     }
 
     public function search(Request $request)
@@ -59,20 +60,111 @@ class HomeController extends Controller
         
     }
 
-    public function formationDetails($id){
-
-        $formation = Formation::find($id);
-        $metier = Metier::find($formation->metier_id);
-        $secteur = Secteur::find($metier->secteur_id);
-
-        return view('user.show_formation', compact('formation', 'metier', 'secteur'));
-    }
+    
 
     public function addToPanier(Request $request, $id){
         $debut = $request->debut;
         $user = Auth::user();
         $formation = Formation::find($id);
 
-        return view('user.panier', compact('debut', 'user', 'formation'));
+        $panier = new Panier;
+
+        $panier->name = $user->name;
+        $panier->firstname = $user->firstname;
+        $panier->email = $user->email;
+        $panier->phone = $user->phone;
+        $panier->titre = $formation->titre;
+        $panier->price = $formation->price;
+        $panier->debut = $debut;
+
+        $panier->save();
+
+        return redirect()->back()->with('message', 'Formation correctement ajoutée au panier');
     }
+
+    public function showPanier(){
+        $user = Auth::user();
+        $paniers = Panier::where('email', '=', $user->email)->get();
+
+        if(count($paniers) ==0){
+            $message_error = 'Aucun Article ajouté au panier';
+            return view('user.panier', compact('message_error', 'paniers'));
+        }else{
+            return view('user.panier', compact('paniers'));
+        }
+        
+    }
+
+    public function removeFromPanier($id){
+        $panier = Panier::find($id);
+
+        $panier->delete();
+
+        return redirect()->back()->with('message', 'Formation correctement supprimée');
+    }
+
+    public function about(){
+
+        return view('about');
+    }
+
+    public function contact(){
+
+        return view('contact');
+    }
+
+    public function formations(){
+
+        return view('formations');
+    }
+
+    public function blog(){
+
+        $actualites = Actualite::All();
+        return view('user.blog', compact('actualites'));
+    }
+
+    
+
+
+    public function searchSecteurDetails($id){
+        $formations = Formation::where('secteur_id', '=', $id)->get();
+        $secteur = Secteur::find($id);
+        
+        if($formations){
+            $secteurname = $secteur->libelle;
+            return view('user.searchDetail', compact('formations', 'secteurname'));
+        }
+        else{
+            $message = "Aucune formation disponible pour le secteur";
+            return view('user.searchDetail', compact('message'));
+        }
+
+    }
+
+    public function searchMetierDetails($id){
+        $formations = Formation::where('metier_id', '=', $id)->get();
+        $metier = Metier::find($id);
+
+        if($formations){
+            $metiername = $metier->libelle;
+            return view('user.searchMetierDetail', compact('formations', 'metiername'));
+        }
+        else{
+            $message = "Aucune formation disponible pour le métier";
+            return view('user.searchMetierDetail', compact('message'));
+        }
+    }
+
+
+    public function blogDetails($id){
+        $actualite = Actualite::find($id);
+        $formation = Formation::find($actualite->formation_id);
+
+        $secteurs = Secteur::All();
+
+        return view('user.blogDetail', compact('formation', 'actualite', 'secteurs'));
+    }
+
+
 }
