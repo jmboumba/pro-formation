@@ -29,7 +29,7 @@
         </center>
 
         <div style="width:400px; margin-left:25%; margin-bottom:300px; margin-top:50px">
-            <form action="{{url('/metiers/store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('/metier/store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3" style="margin-top:10%">
                         <label style="font-weight:bold" for="name" class="form-label">Nom du secteur</label>

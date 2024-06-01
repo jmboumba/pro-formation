@@ -1,16 +1,6 @@
 @extends('layouts.admin.admin')
     
 @section('content')
-        <center>
-                @if(session()->has('message'))
-            
-                <div class='alert alert-success' style="margin-top:2%">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                </button>
-                {{session()->get('message')}}
-
-                @endif
-        </center>
         <nav class="navbar navbar-expand-lg navbar-light bg-withe" style="margin-top:50px">
             <a class="navbar-brand" href="#">
                 <div style="background-color: #c22eee ; width:40px; height:35px; border: 1px solid white; ">
@@ -26,8 +16,19 @@
             <a class="navbar-brand">Add a secteur</a>
         </nav>
 
+        <center>
+                @if(session()->has('message'))
+            
+                <div class='alert alert-success' style="margin-top:2%">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                </button>
+                {{session()->get('message')}}
+
+                @endif
+        </center>
+
         <div style="width:400px; margin-left:25%; margin-top:50px; margin-bottom:300px">
-            <form action="{{url('/secteurs/store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('/secteur/store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3" style="margin-top:10%">
                     <label style="font-weight:bold" for="name" class="form-label">Secteur name</label>

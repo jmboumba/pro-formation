@@ -28,19 +28,7 @@ class AdminController extends Controller
         return view('admin.users.userList', compact('users'));
     }
 
-    public function changeUserRole($id){
-        $user = User::find($id);
-
-        if($user->user_role == 0){
-            $user->user_role = 1;
-        }else{
-            $user->user_role = 0;
-        }
-
-        $user->save();
-
-        return redirect()->back()->with('message', 'User role successfully update');
-    }
+    
 
 
 

@@ -13,7 +13,7 @@
             </a>
             <a class="navbar-brand" href="#">Formations List</a>
             <a href="/formations/add_view" style="margin-left:630px">
-                <button class="btn btn-primary"><i class="bi bi-plus"></i> New</button>
+                <button class="btn btn-primary"><i class="bi bi-plus"></i> Nouveau</button>
             </a>
         </nav>
 

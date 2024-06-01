@@ -12,8 +12,8 @@
                 </div> 
             </a>
             <a class="navbar-brand" href="/metiers/list">Métiers List</a>
-            <a href="/metiers/add_view" style="margin-left:500px">
-                <button class="btn btn-primary"><i class="bi bi-plus"></i> New</button>
+            <a href="/metiers/add" style="margin-left:650px">
+                <button class="btn btn-primary"><i class="bi bi-plus"></i> Nouveau</button>
             </a>
         </nav>
 
@@ -54,7 +54,7 @@
                                 <td>{{$metier->description}}</td>
                                 <td>
                                     <a class="btn btn-success" href="{{url('/metiers/edit', $metier->id)}}">Edit</a>
-                                    <button class="btn btn-danger">delete</button>
+                                    <a onClick="return confirm('Etes vous sure ?')" class="btn btn-danger" href="{{url('/metier/delete', $metier->id)}}">Delete</a>
                                 </td>
                             </tr>
                     @endforeach

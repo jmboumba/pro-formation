@@ -22,7 +22,7 @@
             
                 <div class='alert alert-success'>
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                  x
+                  
                 </button>
                 {{session()->get('message')}}
 
@@ -62,7 +62,7 @@
                 <div class="mt-4" style="margin-bottom:300px">
                     Role : 
                     <input id="role" readonly value="{{$role_name}}" class="block mt-1 w-full" type="text" name="role"/>
-                    <br><a href="{{url('/users/changerole', $user->id)}}"><button class="btn btn-danger">Change user role</button></a>
+                    <br><a href="{{url('/user/update', $user->id)}}"><button class="btn btn-danger">Change user role</button></a>
                 </div>
             </div>
 

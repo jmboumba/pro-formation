@@ -32,24 +32,32 @@
             <div style="background-color: white;padding: 10px;border: 1px solid white;width:100%; ">
             
             <div style="">
-                <div>
-                    Métier name :
-                    <input id="firstname" value="{{$metier->libelle}}" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="firstname" />
-                </div><br>
+                <form action="{{url('/metier/update', $metier->id)}}" method="post">
+                    @csrf
+                    <div>
+                        <strong>Libelle :</strong>
+                        <input id="libelle" value="{{$metier->libelle}}" class="block mt-1 w-full" type="text" name="libelle" :value="old('libelle')" required autofocus autocomplete="libelle" />
+                    </div><br>
 
-                <div>
-                    Description : 
-                    <input id="name" value="{{$metier->description}}" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-                </div><br>
+                    <div>
+                        <strong>Description :</strong>
+                        <input id="description" value="{{$metier->description}}" class="block mt-1 w-full" type="text" name="description" :value="old('description')" required autofocus autocomplete="description" />
+                    </div><br>
 
-                <div>
-                    Secteur : 
-                    <input id="name" readonly value="{{$metier->secteur->libelle}}" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-                </div>
+                    <div>
+                        <strong>Change image</strong>
+                        <input id="image" class="block mt-1 w-full" type="file" name="image" :value="old('image')" autocomplete="image" />
+                    </div><br>
 
-                <div class="mt-4" style="margin-bottom:300px">
-                    <br><a href="{{url('/metiers/update', $metier->id)}}"><button class="btn btn-danger">Save changes</button></a>
-                </div>
+                    <div>
+                        <strong>Secteur :</strong> 
+                        <input id="secteur" readonly value="{{$metier->secteur->libelle}}" class="block mt-1 w-full" type="text" name="secteur" :value="old('secteur')" required autofocus autocomplete="secteur" />
+                    </div>
+
+                    <div class="mt-4" style="margin-bottom:300px">
+                        <br><a ><button class="btn btn-danger">Save changes</button></a>
+                    </div>
+                </form>
             </div>
             </div>
 

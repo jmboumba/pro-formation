@@ -36,7 +36,6 @@
             </div>
             <div class="nav-item dropdown">
               <a
-                href="/formations"
                 class="nav-link dropdown-toggle"
                 data-toggle="dropdown"
                 >Formations</a

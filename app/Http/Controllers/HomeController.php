@@ -34,17 +34,9 @@ class HomeController extends Controller
     }
 
     //search by metier or secteur view
-    public function searchMetier(){
-        $metiers = Metier::All();
+    
 
-        return view('search', compact('metiers'));
-    }
-
-    public function searchSecteur(){
-        $secteurs = Secteur::All();
-
-        return view('search', compact('secteurs'));
-    }
+    
 
     public function search(Request $request)
     {
@@ -60,28 +52,6 @@ class HomeController extends Controller
         
     }
 
-    
-
-    public function addToPanier(Request $request, $id){
-        $debut = $request->debut;
-        $user = Auth::user();
-        $formation = Formation::find($id);
-
-        $panier = new Panier;
-
-        $panier->name = $user->name;
-        $panier->firstname = $user->firstname;
-        $panier->email = $user->email;
-        $panier->phone = $user->phone;
-        $panier->titre = $formation->titre;
-        $panier->price = $formation->price;
-        $panier->debut = $debut;
-
-        $panier->save();
-
-        return redirect()->back()->with('message', 'Formation correctement ajoutée au panier');
-    }
-
     public function showPanier(){
         $user = Auth::user();
         $paniers = Panier::where('email', '=', $user->email)->get();
@@ -95,13 +65,7 @@ class HomeController extends Controller
         
     }
 
-    public function removeFromPanier($id){
-        $panier = Panier::find($id);
-
-        $panier->delete();
-
-        return redirect()->back()->with('message', 'Formation correctement supprimée');
-    }
+    
 
     public function about(){
 
@@ -122,38 +86,6 @@ class HomeController extends Controller
 
         $actualites = Actualite::All();
         return view('user.blog', compact('actualites'));
-    }
-
-    
-
-
-    public function searchSecteurDetails($id){
-        $formations = Formation::where('secteur_id', '=', $id)->get();
-        $secteur = Secteur::find($id);
-        
-        if($formations){
-            $secteurname = $secteur->libelle;
-            return view('user.searchDetail', compact('formations', 'secteurname'));
-        }
-        else{
-            $message = "Aucune formation disponible pour le secteur";
-            return view('user.searchDetail', compact('message'));
-        }
-
-    }
-
-    public function searchMetierDetails($id){
-        $formations = Formation::where('metier_id', '=', $id)->get();
-        $metier = Metier::find($id);
-
-        if($formations){
-            $metiername = $metier->libelle;
-            return view('user.searchMetierDetail', compact('formations', 'metiername'));
-        }
-        else{
-            $message = "Aucune formation disponible pour le métier";
-            return view('user.searchMetierDetail', compact('message'));
-        }
     }
 
 

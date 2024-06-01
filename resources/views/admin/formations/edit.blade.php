@@ -1,7 +1,7 @@
 @extends('layouts.admin.admin')
     
 @section('content')
-        <nav class="navbar navbar-expand-lg navbar-light bg-withe" style="margin-top:10%;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-withe" style="margin-top:5%;">
             <a class="navbar-brand" href="#">
                 <div style="background-color: #c22eee ; width:40px; height:35px; border: 1px solid white; ">
                     <center>
@@ -28,64 +28,66 @@
         </center>
 
 
-            <div style="background-color: white; width:100%;  padding: 10px;border: 1px solid white; margin-left:20%; margin-bottom:300px">
-            
-            <div style="">
-                <div style="margin-left:5%">
-                    <video width="400" controls>
-                        <source src="/formation/Formation.mp4" type="video/mp4">
-                    </video>
-                </div><br>
+            <div style="background-color: white;  padding: 60px; border: 1px solid white; ">
+            <div style="display: flex;flex-direction: row; gap: 50px;">
+                <div style="width:600px;">
+                
+                    <strong style="font-size:30px">Détails de la formation </strong>
+                    <form action="{{url('/formation/update', $formation->id)}}" method="post">
+                    @csrf
 
-                <div>
-                    <p style="font-weight:bold">Change vidéo :</p>
-                    <input id="video" class="block mt-1 w-full" type="file" name="video" :value="old('video')" autocomplete="video" />
-                </div><br>
-                <div>
-                    <p style="font-weight:bold">Titre : </p>
-                    <input id="titre" value="{{$formation->titre}}" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="firstname" />
-                </div><br>
+                    <div>
+                        <p style="font-weight:bold">Change image :</p>
+                        <input id="image" class="block mt-1 w-full" type="file" name="image" :value="old('image')" autocomplete="image" />
+                    </div><br>
+                    
+                    <div>
+                        <p style="font-weight:bold; margin-top:3%">Titre : </p>
+                        <input id="titre" value="{{$formation->titre}}" class="block mt-1 w-full" type="text" name="titre" :value="old('titre')" required autofocus autocomplete="titre" />
+                    </div><br>
 
-                <div class="mb-3">
-                        <p style="font-weight:bold">Métier : </p>
-                        <select class="form-select" aria-label="Default select example" name="metier_id">
-                            <option value="{{$metier->id}}">{{$metier->libelle}}</option>
-                            @foreach($metiers as $metiers)
-                                <option value="{{$metiers->id}}">{{$metiers->libelle}}</option>
-                            @endforeach
-                        </select>
-                </div>
+                    <div class="mb-3">
+                            <p style="font-weight:bold">Métier : </p>
+                            <select class="form-select" aria-label="Default select example" name="metier_id">
+                                <option value="{{$metier->id}}">{{$metier->libelle}}</option>
+                                @foreach($metiers as $metiers)
+                                    <option value="{{$metiers->id}}">{{$metiers->libelle}}</option>
+                                @endforeach
+                            </select>
+                    </div>
 
-                <div>
-                    <p style="font-weight:bold">Durée : </p>
-                    <input id="duree" value="{{$formation->duree}}" class="block mt-1 w-full" type="number" name="duree" min="1" :value="old('duree')" required autofocus autocomplete="duree" />
-                </div><br>
+                    <div>
+                        <p style="font-weight:bold">Durée : </p>
+                        <input id="duree" value="{{$formation->duree}}" class="block mt-1 w-full" type="number" name="duree" min="1" :value="old('duree')" required autofocus autocomplete="duree" />
+                    </div><br>
 
-                <div>
-                    <p style="font-weight:bold">Prix : </p>
-                    <input id="price" value="{{$formation->price}}" class="block mt-1 w-full" type="text" name="price" :value="old('price')" required autofocus autocomplete="price" />
-                </div><br>
+                    <div>
+                        <p style="font-weight:bold">Prix : </p>
+                        <input id="price" value="{{$formation->price}}" class="block mt-1 w-full" type="text" name="price" :value="old('price')" required autofocus autocomplete="price" />
+                    </div><br>
 
-                <div class="mb-3">
-                    <label style="font-weight:bold" for="details" class="form-label">Objectifs :</label>
-                    <br><textarea readwrite style="width:100%; height:300px" name="details" >
-                        {{$formation->objectifs}}
-                    </textarea>
-                </div>
-                <div class="mb-3">
-                    <label style="font-weight:bold" for="details" class="form-label">Programme</label>
-                    <br><textarea readwrite style="width:100%; height:300px" name="details" >
-                        {{$formation->programme}}
-                    </textarea>
-                </div>
+                    <div class="mb-3">
+                        <label style="font-weight:bold" for="details" class="form-label">Objectifs :</label>
+                        <br><textarea readwrite style="width:100%; height:300px" name="objectifs" >
+                            {{$formation->objectifs}}
+                        </textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label style="font-weight:bold" for="details" class="form-label">Programme</label>
+                        <br><textarea readwrite style="width:100%; height:300px" name="programme" >
+                            {{$formation->programme}}
+                        </textarea>
+                    </div>
 
-                <div class="mt-4">
-                    <br><a href="{{url('/formations/update', $formation->id)}}"><button class="btn btn-danger">Save changes</button></a>
-                </div>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-danger">Save changes</button></a>
+                    </div>
+                </form>
+                    
             </div>
-
-            
-            
+            <div style="background-color: white;padding: 10px;border: 1px solid white; margin-top:5px">
+                <img style="height:300px; width:350px;" src="/images/formations/{{$formation->image}}"/>
+            </div>
         </div>
 
         

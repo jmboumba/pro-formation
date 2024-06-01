@@ -22,7 +22,7 @@
             
                 <div class='alert alert-success'>
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                  x
+                  
                 </button>
                 {{session()->get('message')}}
 
@@ -33,18 +33,19 @@
             <div style="background-color: white;padding: 10px;border: 1px solid white;width:100%; margin-left:10%">
             
                 <div style="">
-                    <form action="{{url('/secteurs/update', $secteur->id)}}" method="post" enctype="multipart/form-data">
+                    <form action="{{url('/secteur/update', $secteur->id)}}" method="post" enctype="multipart/form-data">
+                        @csrf
                     <div>
-                        Secteur name :
-                        <input id="firstname" value="{{$secteur->libelle}}" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="firstname" />
+                        <label for="libelle">Secteur name :</label>
+                        <input id="libelle" value="{{$secteur->libelle}}" class="block mt-1 w-full" type="text" name="libelle" :value="old('libelle')" required autofocus autocomplete="libelle" />
                     </div><br>
 
                     <div>
-                        Description : 
-                        <input id="name" value="{{$secteur->description}}" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                        <label for="description">Description : </label>
+                        <input id="description" value="{{$secteur->description}}" class="block mt-1 w-full" type="text" name="description" :value="old('description')" required autofocus autocomplete="description" />
                     </div><br>
                     <div>
-                    <p style="font-weight:bold">Change image :</p>
+                    <label for="image">Change image  :</label>
                         <input id="image" class="block mt-1 w-full" type="file" name="image" :value="old('image')" autocomplete="image" />
                     </div><br>
 

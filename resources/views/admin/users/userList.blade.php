@@ -14,6 +14,17 @@
             <a class="navbar-brand" href="#">Users List</a>
         </nav>
 
+        <center>
+                @if(session()->has('message'))
+            
+                <div class='alert alert-success'>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                </button>
+                {{session()->get('message')}}
+
+                @endif
+        </center>
+
         
         <form action="" method="post">
             <nav class="navbar navbar-expand-lg navbar-light bg-withe">
@@ -59,7 +70,7 @@
                             <td>Offline</td>
                             <td>
                                 <a class="btn btn-success" href="{{url('/users/edit', $users->id)}}">Edit</a>
-                                <button class="btn btn-danger">delete</button>
+                                <a href="{{url('/user/delete', $users->id)}}"><button onclick="return confirm('Etes vous sure ? ')" class="btn btn-danger">delete</button></a>
                             </td>
                         </tr>
                     @endforeach

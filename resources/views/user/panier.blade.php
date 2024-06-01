@@ -112,6 +112,19 @@
     </div>
     <!-- About End -->
 
+    <div class="container-fluid py-5">
+      <div class="container">
+        <div class="row align-items-center">
+        <center>
+        @if(session()->has('message_error'))
+            <div class='alert alert-success' >
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                </button>
+                {{session()->get('message_error')}}
+            </div>
+        @endif
+    </center>
+
    
 
     @include('footer')
